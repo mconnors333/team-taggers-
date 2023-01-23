@@ -10,16 +10,16 @@ import {
 import { OrderService } from '../services/order.service';
 
 @Component({
-  selector: 'app-properties',
-  templateUrl: './properties.component.html',
-  styleUrls: ['./properties.component.css'],
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css'],
   providers: [OrderService, HttpClient],
 })
 export class OrderComponent implements OnInit {
   constructor(
     public router: Router,
     public activateRoute: ActivatedRoute,
-    public propertiesService: OrderService
+    public orderService: OrderService
   ) {}
 
   clicked: boolean = false;
@@ -55,7 +55,7 @@ export class OrderComponent implements OnInit {
   properties: any;
   ngOnInit() {
     console.log('init');
-    this.properties = this.propertiesService._getProperties();
+    this.properties = this.orderService._getProperties();
   }
   addProperty() {
     console.log('property added');
