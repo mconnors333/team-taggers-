@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class PropertiesService {
+export class OrderService {
   constructor(private http: HttpClient) {}
 
   public _saveProperty(payload: any) {

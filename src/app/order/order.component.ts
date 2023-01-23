@@ -7,19 +7,19 @@ import {
   ActivatedRoute,
   NavigationStart,
 } from '@angular/router';
-import { PropertiesService } from '../services/properties.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-properties',
   templateUrl: './properties.component.html',
   styleUrls: ['./properties.component.css'],
-  providers: [PropertiesService, HttpClient],
+  providers: [OrderService, HttpClient],
 })
-export class PropertiesComponent implements OnInit {
+export class OrderComponent implements OnInit {
   constructor(
     public router: Router,
     public activateRoute: ActivatedRoute,
-    public propertiesService: PropertiesService
+    public propertiesService: OrderService
   ) {}
 
   clicked: boolean = false;
