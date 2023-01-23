@@ -6,11 +6,10 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 
 import { AppComponent } from './app.component';
-import { OffersComponent } from './offers/offers.component';
 import { LandingComponent } from './landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PropertiesComponent } from './properties/properties.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   imports: [
@@ -22,8 +21,7 @@ import { PropertiesComponent } from './properties/properties.component';
   ],
   declarations: [
     AppComponent,
-    OffersComponent,
-    PropertiesComponent,
+    OrderComponent,
     BottomBarComponent,
     TopBarComponent,
     LandingComponent,
