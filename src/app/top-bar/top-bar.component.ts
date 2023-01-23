@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css'],
 })
 export class TopBarComponent implements OnInit {
-  title = 'Real Estate Offer Tracker';
+  title = 'Team Taggers';
   links = ['Order'];
   constructor() {}
 
