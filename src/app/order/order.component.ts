@@ -23,6 +23,12 @@ export class OrderComponent implements OnInit {
   ) {}
 
   clicked: boolean = false;
+  gameForm = new FormGroup({
+    date: new FormControl('', Validators.required),
+    time: new FormControl('', Validators.required),
+    location: new FormControl('', Validators.required),
+    opponent: new FormControl('', Validators.required),
+  });
 
   orderForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -39,15 +45,26 @@ export class OrderComponent implements OnInit {
     number: '',
   };
   players: any;
+  games: any;
+
   ngOnInit() {
     console.log('init');
-    this.players = this.orderService._getProperties();
+    this.players = this.orderService._getPlayers();
+    this.games = this.orderService._getSchedule();
+    console.log(this.games);
   }
   addPlayer() {
     console.log('property added');
     console.log(this.orderForm.value);
     this.players.push(this.orderForm.value);
     this.orderForm.reset();
+  }
+
+  addGame() {
+    console.log('property added');
+    console.log(this.gameForm.value);
+    this.games.push(this.gameForm.value);
+    this.gameForm.reset();
   }
 
   goToSchedule() {

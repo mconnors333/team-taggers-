@@ -1,5 +1,5 @@
 <div class="container mt-3 mb-5">
-  <h4>Add a player below to begin.</h4>
+  <h2>Add a player below to begin.</h2>
   <form [formGroup]="orderForm" class="row g-3">
     <!-- <div class="col-12"> -->
     <div class="col-sm-6">
@@ -81,5 +81,78 @@
       </tbody>
     </table>
   </div>
-  <button (click)="goToSchedule()" class="btn btn-primary">Add Schedule</button>
+  <h2 class="mt-5">Add your schedule</h2>
+
+  <form [formGroup]="gameForm" class="row g-3">
+    <div class="col-sm-4">
+      <label for="inputDate" class="form-label">Date</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputDate"
+        formControlName="date"
+      />
+    </div>
+    <div class="col-sm-4">
+      <label for="inputTime" class="form-label">Time</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputTime"
+        formControlName="time"
+      />
+    </div>
+    <div class="col-sm-4">
+      <label for="inputTime" class="form-label">Opponent</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputTime"
+        formControlName="time"
+      />
+    </div>
+    <div class="col-sm-4">
+      <label for="inputLocation" class="form-label">Home/Away</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputLocation"
+        formControlName="location"
+      />
+    </div>
+
+    <button
+      [disabled]="gameForm.invalid"
+      (click)="addGame()"
+      class="btn btn-primary"
+    >
+      Add Game
+    </button>
+    <!-- </div> -->
+  </form>
+
+  <div class="mt-5">
+    <h1>Your Schedule</h1>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Opponent</th>
+          <th scope="col">Location</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games">
+          <td>{{ game.date }}</td>
+          <td>{{ game.opponent }}</td>
+          <td>{{ game.location }}</td>
+          <td>{{ game.time }}</td>
+        </tr>
+        <tr *ngIf="games.length == 0">
+          <td colspan="5" align="center">No Games to display.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
