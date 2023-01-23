@@ -8,7 +8,7 @@ import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   { path: '', component: OrderComponent },
-=  { path: 'Order', component: OrderComponent },
+  { path: 'Order', component: OrderComponent },
 ];
 
 @NgModule({
