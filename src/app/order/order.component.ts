@@ -24,63 +24,38 @@ export class OrderComponent implements OnInit {
 
   clicked: boolean = false;
 
-  propertyForm = new FormGroup({
-    address1: new FormControl(''),
-    address2: new FormControl(''),
-    city: new FormControl(''),
-    state: new FormControl(''),
-    zipcode: new FormControl(''),
-    price: new FormControl(''),
-    beds: new FormControl(''),
-    baths: new FormControl(''),
-    notes: new FormControl(''),
-    lotSize: new FormControl(''),
-    livingArea: new FormControl(''),
-    image: new FormControl(''),
+  orderForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    position: new FormControl(''),
+    grade: new FormControl(''),
+    number: new FormControl(''),
   });
   savePayload = {
-    address1: '',
-    address2: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    price: '',
-    beds: 0,
-    baths: 0,
-    notes: '',
-    lotSize: '',
-    livingArea: '',
-    image: null,
+    firstName: '',
+    lastName: '',
+    position: '',
+    grade: '',
+    number: '',
   };
-  properties: any;
+  players: any;
   ngOnInit() {
     console.log('init');
-    this.properties = this.orderService._getProperties();
+    this.players = this.orderService._getProperties();
   }
-  addProperty() {
+  addPlayer() {
     console.log('property added');
-    console.log(this.propertyForm.value);
-    this.properties.push(this.propertyForm.value);
-  }
-
-  goToProperty(property) {
-    this.router.navigate(['Offers', property.id]);
+    console.log(this.orderForm.value);
+    this.players.push(this.orderForm.value);
   }
 
   resetForm() {
     this.savePayload = {
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      zipcode: '',
-      price: '',
-      beds: 0,
-      baths: 0,
-      notes: '',
-      lotSize: '',
-      livingArea: '',
-      image: null,
+      firstName: '',
+      lastName: '',
+      position: '',
+      grade: '',
+      number: '',
     };
   }
 }
