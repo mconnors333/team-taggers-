@@ -1,6 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {
   Router,
   NavigationEnd,
@@ -25,11 +25,11 @@ export class OrderComponent implements OnInit {
   clicked: boolean = false;
 
   orderForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    position: new FormControl(''),
-    grade: new FormControl(''),
-    number: new FormControl(''),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    position: new FormControl('', Validators.required),
+    grade: new FormControl('', Validators.required),
+    number: new FormControl('', Validators.required),
   });
   savePayload = {
     firstName: '',
@@ -47,6 +47,11 @@ export class OrderComponent implements OnInit {
     console.log('property added');
     console.log(this.orderForm.value);
     this.players.push(this.orderForm.value);
+    this.orderForm.reset();
+  }
+
+  goToSchedule() {
+    console.log('go to schedule');
   }
 
   resetForm() {

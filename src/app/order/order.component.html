@@ -47,7 +47,13 @@
         formControlName="grade"
       />
     </div>
-    <button (click)="addPlayer()" class="btn btn-primary">Add Player</button>
+    <button
+      [disabled]="orderForm.invalid"
+      (click)="addPlayer()"
+      class="btn btn-primary"
+    >
+      Add Player
+    </button>
     <!-- </div> -->
   </form>
 
@@ -57,17 +63,17 @@
       <thead>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Position</th>
           <th scope="col">Number</th>
           <th scope="col">Grade</th>
-          <th scope="col">Position</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let player of players">
           <td>{{ player.firstName }} {{ player.lastName }}</td>
+          <td>{{ player.position }}</td>
           <td>{{ player.number }}</td>
           <td>{{ player.grade }}</td>
-          <td>{{ player.position }}</td>
         </tr>
         <tr *ngIf="players.length == 0">
           <td colspan="5" align="center">No players to display.</td>
@@ -75,4 +81,5 @@
       </tbody>
     </table>
   </div>
+  <button (click)="goToSchedule()" class="btn btn-primary">Add Schedule</button>
 </div>
