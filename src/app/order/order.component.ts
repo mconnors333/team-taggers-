@@ -21,7 +21,9 @@ export class OrderComponent implements OnInit {
     public activateRoute: ActivatedRoute,
     public orderService: OrderService
   ) {}
-
+  uploadedFile: File;
+  uploadedFileSrc: any;
+  currentPage: string = 'players';
   clicked: boolean = false;
   gameForm = new FormGroup({
     date: new FormControl('', Validators.required),
@@ -65,6 +67,24 @@ export class OrderComponent implements OnInit {
     console.log(this.gameForm.value);
     this.games.push(this.gameForm.value);
     this.gameForm.reset();
+  }
+
+  loadFile(event: Event) {
+    console.log(this.uploadedFile);
+    console.log(event.target);
+
+    if (
+      (<HTMLInputElement>event.target).files &&
+      (<HTMLInputElement>event.target).files[0]
+    ) {
+      const file = (<HTMLInputElement>event.target).files[0];
+
+      const reader = new FileReader();
+      reader.onload = (e) => (this.uploadedFileSrc = reader.result);
+
+      reader.readAsDataURL(file);
+    }
+    this.uploadedFileSrc = URL.createObjectURL(this.uploadedFile);
   }
 
   goToSchedule() {

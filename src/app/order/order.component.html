@@ -1,158 +1,268 @@
 <div class="container mt-3 mb-5">
-  <h2>Add a player below to begin.</h2>
-  <form [formGroup]="orderForm" class="row g-3">
-    <!-- <div class="col-12"> -->
-    <div class="col-sm-6">
-      <label for="inputFirstName" class="form-label">First Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputFirstName"
-        formControlName="firstName"
-      />
-    </div>
-    <div class="col-sm-6">
-      <label for="inputLastName" class="form-label">Last Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputLastName"
-        formControlName="lastName"
-      />
-    </div>
-    <div class="col-sm-4">
-      <label for="inputPosition" class="form-label">Position</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputPosition"
-        formControlName="position"
-      />
-    </div>
-    <div class="col-sm-4">
-      <label for="inputNumber" class="form-label">Number</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputNumber"
-        formControlName="number"
-      />
-    </div>
-    <div class="col-sm-4">
-      <label for="inputGrade" class="form-label">Grade</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputGrade"
-        formControlName="grade"
-      />
-    </div>
-    <button
-      [disabled]="orderForm.invalid"
-      (click)="addPlayer()"
-      class="btn btn-primary"
-    >
-      Add Player
-    </button>
-    <!-- </div> -->
-  </form>
+  <div *ngIf="currentPage == 'players'">
+    <h3>Add a player below to begin.</h3>
+    <form [formGroup]="orderForm" class="row g-3">
+      <!-- <div class="col-12"> -->
+      <div class="col-sm-6">
+        <label for="inputFirstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="inputLastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLastName"
+          formControlName="lastName"
+        />
+      </div>
+      <div class="col-sm-4">
+        <label for="inputPosition" class="form-label">Position</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputPosition"
+          formControlName="position"
+        />
+      </div>
+      <div class="col-sm-4">
+        <label for="inputNumber" class="form-label">Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputNumber"
+          formControlName="number"
+        />
+      </div>
+      <div class="col-sm-4">
+        <label for="inputGrade" class="form-label">Grade</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputGrade"
+          formControlName="grade"
+        />
+      </div>
+      <button
+        [disabled]="orderForm.invalid"
+        (click)="addPlayer()"
+        class="btn btn-primary"
+      >
+        Add Player
+      </button>
+      <!-- </div> -->
+    </form>
 
-  <div class="mt-5">
-    <h1>Your Players</h1>
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Position</th>
-          <th scope="col">Number</th>
-          <th scope="col">Grade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let player of players">
-          <td>{{ player.firstName }} {{ player.lastName }}</td>
-          <td>{{ player.position }}</td>
-          <td>{{ player.number }}</td>
-          <td>{{ player.grade }}</td>
-        </tr>
-        <tr *ngIf="players.length == 0">
-          <td colspan="5" align="center">No players to display.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="mt-5">
+      <h1>Players</h1>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Number</th>
+            <th scope="col">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players">
+            <td>{{ player.firstName }} {{ player.lastName }}</td>
+            <td>{{ player.position }}</td>
+            <td>{{ player.number }}</td>
+            <td>{{ player.grade }}</td>
+          </tr>
+          <tr *ngIf="players.length == 0">
+            <td colspan="5" align="center">No players to display.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="currentPage = 'schedule'" class="btn btn-primary">
+      Go to Schedule
+    </button>
   </div>
-  <h2 class="mt-5">Add your schedule</h2>
+  <div *ngIf="currentPage == 'schedule'">
+    <h3>Add your schedule</h3>
 
-  <form [formGroup]="gameForm" class="row g-3">
-    <div class="col-sm-4">
-      <label for="inputDate" class="form-label">Date</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputDate"
-        formControlName="date"
-      />
-    </div>
-    <div class="col-sm-4">
-      <label for="inputTime" class="form-label">Time</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputTime"
-        formControlName="time"
-      />
-    </div>
-    <div class="col-sm-4">
-      <label for="inputTime" class="form-label">Opponent</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputTime"
-        formControlName="time"
-      />
-    </div>
-    <div class="col-sm-4">
-      <label for="inputLocation" class="form-label">Home/Away</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputLocation"
-        formControlName="location"
-      />
-    </div>
+    <form [formGroup]="gameForm" class="row g-3">
+      <div class="col-sm-4">
+        <label for="inputDate" class="form-label">Date</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputDate"
+          formControlName="date"
+        />
+      </div>
+      <div class="col-sm-4">
+        <label for="inputTime" class="form-label">Time</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputTime"
+          formControlName="time"
+        />
+      </div>
+      <div class="col-sm-4">
+        <label for="inputTime" class="form-label">Opponent</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputTime"
+          formControlName="opponent"
+        />
+      </div>
+      <div class="col-sm-4">
+        <label for="inputLocation" class="form-label">Home/Away</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLocation"
+          formControlName="location"
+        />
+      </div>
 
-    <button
-      [disabled]="gameForm.invalid"
-      (click)="addGame()"
-      class="btn btn-primary"
-    >
-      Add Game
+      <button
+        [disabled]="gameForm.invalid"
+        (click)="addGame()"
+        class="btn btn-primary"
+      >
+        Add Game
+      </button>
+      <!-- </div> -->
+    </form>
+
+    <div class="mt-5">
+      <h1>Schedule</h1>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Opponent</th>
+            <th scope="col">Location</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let game of games">
+            <td>{{ game.date }}</td>
+            <td>{{ game.opponent }}</td>
+            <td>{{ game.location }}</td>
+            <td>{{ game.time }}</td>
+          </tr>
+          <tr *ngIf="games.length == 0">
+            <td colspan="5" align="center">No Games to display.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="currentPage = 'players'" class="btn btn-danger me-3">
+      Back
     </button>
-    <!-- </div> -->
-  </form>
+    <button (click)="currentPage = 'logo'" class="btn btn-primary">
+      Add Your Team's Logo
+    </button>
+  </div>
+  <div *ngIf="currentPage == 'logo'">
+    <h3>Add Your Team's Logo</h3>
+    <div class="mb-3">
+      <label for="formFile" class="form-label"
+        >Default file input example</label
+      >
+      <input
+        class="form-control"
+        [(ngModel)]="uploadedFile"
+        (change)="loadFile($event)"
+        accept="image/*"
+        type="file"
+        id="formFile"
+      />
 
-  <div class="mt-5">
-    <h1>Your Schedule</h1>
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Opponent</th>
-          <th scope="col">Location</th>
-          <th scope="col">Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let game of games">
-          <td>{{ game.date }}</td>
-          <td>{{ game.opponent }}</td>
-          <td>{{ game.location }}</td>
-          <td>{{ game.time }}</td>
-        </tr>
-        <tr *ngIf="games.length == 0">
-          <td colspan="5" align="center">No Games to display.</td>
-        </tr>
-      </tbody>
-    </table>
+      <img
+        *ngIf="uploadedFileSrc"
+        class="mt-5"
+        alt="your image"
+        [src]="uploadedFileSrc"
+        style="max-height:200px;"
+      />
+    </div>
+    <button (click)="currentPage = 'schedule'" class="btn btn-danger me-3">
+      Back
+    </button>
+    <button (click)="currentPage = 'summary'" class="btn btn-primary">
+      Go to Summary
+    </button>
+  </div>
+
+  <div *ngIf="currentPage == 'summary'">
+    <h1>Summary</h1>
+    <div class="mt-2">
+      <h3>Players</h3>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Number</th>
+            <th scope="col">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players">
+            <td>{{ player.firstName }} {{ player.lastName }}</td>
+            <td>{{ player.position }}</td>
+            <td>{{ player.number }}</td>
+            <td>{{ player.grade }}</td>
+          </tr>
+          <tr *ngIf="players.length == 0">
+            <td colspan="5" align="center">No players to display.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-2">
+      <h3>Schedule</h3>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Opponent</th>
+            <th scope="col">Location</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let game of games">
+            <td>{{ game.date }}</td>
+            <td>{{ game.opponent }}</td>
+            <td>{{ game.location }}</td>
+            <td>{{ game.time }}</td>
+          </tr>
+          <tr *ngIf="games.length == 0">
+            <td colspan="5" align="center">No Games to display.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mb-3">
+      <h3>Logo</h3>
+      <img
+        *ngIf="uploadedFileSrc"
+        alt="your image"
+        [src]="uploadedFileSrc"
+        style="max-height:200px;"
+      />
+    </div>
+    <button (click)="currentPage = 'logo'" class="btn btn-danger me-3">
+      Back
+    </button>
+    <button (click)="currentPage = 'checkout'" class="btn btn-primary">
+      Go to Checkout
+    </button>
   </div>
 </div>
