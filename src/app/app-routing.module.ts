@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { PlayersComponent } from './players/players.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { LogoComponent } from './logo/logo.component';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'Players', component: PlayersComponent },
   { path: 'Schedule', component: ScheduleComponent },
   { path: 'Logo', component: LogoComponent },
-
+  { path: 'Summary', component: SummaryComponent },
   { path: 'Checkout', component: CheckoutComponent },
 ];
 

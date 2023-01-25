@@ -19,10 +19,6 @@
       style="max-height:200px;"
     />
   </div>
-  <button (click)="currentPage = 'schedule'" class="btn btn-danger me-3">
-    Back
-  </button>
-  <button (click)="currentPage = 'summary'" class="btn btn-primary">
-    Go to Summary
-  </button>
+  <button (click)="goBack()" class="btn btn-danger me-3">Back</button>
+  <button (click)="goToSummary()" class="btn btn-primary">Go to Summary</button>
 </div>
