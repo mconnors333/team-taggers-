@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
-  { path: '', component: OrderComponent },
+  { path: '', component: LandingComponent },
   { path: 'Order', component: OrderComponent },
 ];
 
