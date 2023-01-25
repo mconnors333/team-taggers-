@@ -8,7 +8,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 import { OrderComponent } from './order/order.component';
 
 @NgModule({
@@ -22,6 +23,8 @@ import { OrderComponent } from './order/order.component';
   declarations: [
     AppComponent,
     OrderComponent,
+    AboutComponent,
+    ContactComponent,
     BottomBarComponent,
     TopBarComponent,
     LandingComponent,

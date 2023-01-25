@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
   title = 'Team Taggers';
-  links = ['Order'];
+  links = ['About', 'Order', 'Contact'];
   constructor() {}
 
   ngOnInit() {}
