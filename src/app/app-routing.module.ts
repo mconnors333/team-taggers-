@@ -8,12 +8,19 @@ import { LandingComponent } from './landing/landing.component';
 import { ContactComponent } from './contact/contact.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutComponent } from './about/about.component';
+import { PlayersComponent } from './players/players.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { LogoComponent } from './logo/logo.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'About', component: AboutComponent },
-  { path: 'Order', component: OrderComponent },
+  { path: 'Order', component: PlayersComponent },
   { path: 'Contact', component: ContactComponent },
+  { path: 'Players', component: PlayersComponent },
+  { path: 'Schedule', component: ScheduleComponent },
+  { path: 'Logo', component: LogoComponent },
+
   { path: 'Checkout', component: CheckoutComponent },
 ];
 
