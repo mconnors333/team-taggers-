@@ -12,6 +12,10 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { OrderComponent } from './order/order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PlayersComponent } from './players/players.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { LogoComponent } from './logo/logo.component';
+
 
 @NgModule({
   imports: [
@@ -24,6 +28,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
   declarations: [
     AppComponent,
     OrderComponent,
+    PlayersComponent,
+    ScheduleComponent,
+    LogoComponent,
     AboutComponent,
     ContactComponent,
     CheckoutComponent,
