@@ -1,6 +1,6 @@
 <h3>Add your schedule</h3>
 
-<form [formGroup]="gameForm" class="row g-3">
+<form [formGroup]="scheduleForm" class="row g-3">
   <div class="col-sm-4">
     <label for="inputDate" class="form-label">Date</label>
     <input
@@ -39,7 +39,7 @@
   </div>
 
   <button
-    [disabled]="gameForm.invalid"
+    [disabled]="scheduleForm.invalid"
     (click)="addGame()"
     class="btn btn-primary"
   >

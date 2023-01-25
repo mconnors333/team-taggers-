@@ -1,5 +1,5 @@
 <h3>Add a player below to begin.</h3>
-<form [formGroup]="orderForm" class="row g-3">
+<form [formGroup]="playersForm" class="row g-3">
   <!-- <div class="col-12"> -->
   <div class="col-sm-6">
     <label for="inputFirstName" class="form-label">First Name</label>
@@ -47,7 +47,7 @@
     />
   </div>
   <button
-    [disabled]="orderForm.invalid"
+    [disabled]="playersForm.invalid"
     (click)="addPlayer()"
     class="btn btn-primary"
   >
