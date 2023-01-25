@@ -1,80 +1,82 @@
-<h3>Add your schedule</h3>
+<div class="container mt-3 mb-5">
+  <h3>Add your schedule</h3>
 
-<form [formGroup]="scheduleForm" class="row g-3">
-  <div class="col-sm-4">
-    <label for="inputDate" class="form-label">Date</label>
-    <input
-      type="text"
-      class="form-control"
-      id="inputDate"
-      formControlName="date"
-    />
-  </div>
-  <div class="col-sm-4">
-    <label for="inputTime" class="form-label">Time</label>
-    <input
-      type="text"
-      class="form-control"
-      id="inputTime"
-      formControlName="time"
-    />
-  </div>
-  <div class="col-sm-4">
-    <label for="inputTime" class="form-label">Opponent</label>
-    <input
-      type="text"
-      class="form-control"
-      id="inputTime"
-      formControlName="opponent"
-    />
-  </div>
-  <div class="col-sm-4">
-    <label for="inputLocation" class="form-label">Home/Away</label>
-    <input
-      type="text"
-      class="form-control"
-      id="inputLocation"
-      formControlName="location"
-    />
-  </div>
+  <form [formGroup]="scheduleForm" class="row g-3">
+    <div class="col-sm-4">
+      <label for="inputDate" class="form-label">Date</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputDate"
+        formControlName="date"
+      />
+    </div>
+    <div class="col-sm-4">
+      <label for="inputTime" class="form-label">Time</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputTime"
+        formControlName="time"
+      />
+    </div>
+    <div class="col-sm-4">
+      <label for="inputTime" class="form-label">Opponent</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputTime"
+        formControlName="opponent"
+      />
+    </div>
+    <div class="col-sm-4">
+      <label for="inputLocation" class="form-label">Home/Away</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputLocation"
+        formControlName="location"
+      />
+    </div>
 
-  <button
-    [disabled]="scheduleForm.invalid"
-    (click)="addGame()"
-    class="btn btn-primary"
-  >
-    Add Game
+    <button
+      [disabled]="scheduleForm.invalid"
+      (click)="addGame()"
+      class="btn btn-primary"
+    >
+      Add Game
+    </button>
+    <!-- </div> -->
+  </form>
+
+  <div class="mt-5">
+    <h1>Schedule</h1>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Opponent</th>
+          <th scope="col">Location</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games">
+          <td>{{ game.date }}</td>
+          <td>{{ game.opponent }}</td>
+          <td>{{ game.location }}</td>
+          <td>{{ game.time }}</td>
+        </tr>
+        <tr *ngIf="games.length == 0">
+          <td colspan="5" align="center">No Games to display.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button (click)="goBack()" class="btn btn-danger me-3">
+    Back
   </button>
-  <!-- </div> -->
-</form>
-
-<div class="mt-5">
-  <h1>Schedule</h1>
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Opponent</th>
-        <th scope="col">Location</th>
-        <th scope="col">Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let game of games">
-        <td>{{ game.date }}</td>
-        <td>{{ game.opponent }}</td>
-        <td>{{ game.location }}</td>
-        <td>{{ game.time }}</td>
-      </tr>
-      <tr *ngIf="games.length == 0">
-        <td colspan="5" align="center">No Games to display.</td>
-      </tr>
-    </tbody>
-  </table>
+  <button (click)="goToLogo()" class="btn btn-primary">
+    Add Your Team's Logo
+  </button>
 </div>
-<button (click)="currentPage = 'players'" class="btn btn-danger me-3">
-  Back
-</button>
-<button (click)="currentPage = 'logo'" class="btn btn-primary">
-  Add Your Team's Logo
-</button>

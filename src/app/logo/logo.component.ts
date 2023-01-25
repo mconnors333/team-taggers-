@@ -1,17 +1,30 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  Router,
+  NavigationEnd,
+  ActivatedRoute,
+  NavigationStart,
+} from '@angular/router';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-logo',
   templateUrl: './logo.component.html',
   styleUrls: ['./logo.component.css'],
+  providers: [OrderService],
 })
 export class LogoComponent implements OnInit {
   uploadedFile: File;
   uploadedFileSrc: any;
   currentPage: string = '';
 
-  constructor() {}
-
+  constructor(
+    public router: Router,
+    public activateRoute: ActivatedRoute,
+    public orderService: OrderService
+  ) {}
   ngOnInit() {}
 
   loadFile(event: Event) {
@@ -30,5 +43,12 @@ export class LogoComponent implements OnInit {
       reader.readAsDataURL(file);
     }
     this.uploadedFileSrc = URL.createObjectURL(this.uploadedFile);
+  }
+
+  goToSummary() {
+    this.router.navigate(['Summary']);
+  }
+  goBack() {
+    this.router.navigate(['Schedule']);
   }
 }
