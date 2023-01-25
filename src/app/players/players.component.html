@@ -1,0 +1,85 @@
+<h3>Add a player below to begin.</h3>
+<form [formGroup]="orderForm" class="row g-3">
+  <!-- <div class="col-12"> -->
+  <div class="col-sm-6">
+    <label for="inputFirstName" class="form-label">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputFirstName"
+      formControlName="firstName"
+    />
+  </div>
+  <div class="col-sm-6">
+    <label for="inputLastName" class="form-label">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputLastName"
+      formControlName="lastName"
+    />
+  </div>
+  <div class="col-sm-4">
+    <label for="inputPosition" class="form-label">Position</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputPosition"
+      formControlName="position"
+    />
+  </div>
+  <div class="col-sm-4">
+    <label for="inputNumber" class="form-label">Number</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputNumber"
+      formControlName="number"
+    />
+  </div>
+  <div class="col-sm-4">
+    <label for="inputGrade" class="form-label">Grade</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputGrade"
+      formControlName="grade"
+    />
+  </div>
+  <button
+    [disabled]="orderForm.invalid"
+    (click)="addPlayer()"
+    class="btn btn-primary"
+  >
+    Add Player
+  </button>
+  <!-- </div> -->
+</form>
+
+<div class="mt-5">
+  <h1>Players</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Number</th>
+        <th scope="col">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.firstName }} {{ player.lastName }}</td>
+        <td>{{ player.position }}</td>
+        <td>{{ player.number }}</td>
+        <td>{{ player.grade }}</td>
+      </tr>
+      <tr *ngIf="players.length == 0">
+        <td colspan="5" align="center">No players to display.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button (click)="currentPage = 'schedule'" class="btn btn-primary">
+  Go to Schedule
+</button>

@@ -1,0 +1,26 @@
+<h3>Add Your Team's Logo</h3>
+<div class="mb-3">
+  <label for="formFile" class="form-label">Default file input example</label>
+  <input
+    class="form-control"
+    [(ngModel)]="uploadedFile"
+    (change)="loadFile($event)"
+    accept="image/*"
+    type="file"
+    id="formFile"
+  />
+
+  <img
+    *ngIf="uploadedFileSrc"
+    class="mt-5"
+    alt="your image"
+    [src]="uploadedFileSrc"
+    style="max-height:200px;"
+  />
+</div>
+<button (click)="currentPage = 'schedule'" class="btn btn-danger me-3">
+  Back
+</button>
+<button (click)="currentPage = 'summary'" class="btn btn-primary">
+  Go to Summary
+</button>

@@ -1,0 +1,40 @@
+<div class="mt-2">
+  <h3>Schedule</h3>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Opponent</th>
+        <th scope="col">Location</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games">
+        <td>{{ game.date }}</td>
+        <td>{{ game.opponent }}</td>
+        <td>{{ game.location }}</td>
+        <td>{{ game.time }}</td>
+      </tr>
+      <tr *ngIf="games.length == 0">
+        <td colspan="5" align="center">No Games to display.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="mb-3">
+  <h3>Logo</h3>
+  <img
+    *ngIf="uploadedFileSrc"
+    alt="your image"
+    [src]="uploadedFileSrc"
+    style="max-height:200px;"
+  />
+</div>
+<button (click)="currentPage = 'logo'" class="btn btn-danger me-3">
+  Back
+</button>
+<button (click)="currentPage = 'checkout'" class="btn btn-primary">
+  Go to Checkout
+</button>
+</div>
