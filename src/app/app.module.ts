@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { OrderComponent } from './order/order.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { OrderComponent } from './order/order.component';
     OrderComponent,
     AboutComponent,
     ContactComponent,
+    CheckoutComponent,
     BottomBarComponent,
     TopBarComponent,
     LandingComponent,
