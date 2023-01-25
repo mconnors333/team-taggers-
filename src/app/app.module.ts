@@ -15,7 +15,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PlayersComponent } from './players/players.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { LogoComponent } from './logo/logo.component';
-
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   imports: [
@@ -30,6 +30,7 @@ import { LogoComponent } from './logo/logo.component';
     OrderComponent,
     PlayersComponent,
     ScheduleComponent,
+    SummaryComponent,
     LogoComponent,
     AboutComponent,
     ContactComponent,
