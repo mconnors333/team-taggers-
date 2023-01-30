@@ -1,24 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class OrderService {
   constructor(private http: HttpClient) {}
+
+  players: any;
+  schedule: any;
+  logo: any;
 
   public _saveProperty(payload: any) {
     // return this.http.post<any[]>(`${this.apiUrl}api/v1/encompassclient/createEncompassclient`, payload);
   }
 
-  public _getProperty(propertyId: any) {
-    let properties = this._getPlayers();
-    let listing;
-    properties.forEach((property) => {
-      if (property.id == propertyId) {
-        listing = property;
-      }
-    });
+  set currentPlayers(val: any) {
+    this.players = val;
+  }
 
-    return listing;
+  get currentPlayers() {
+    return this.players;
+  }
+
+  set currentSchedule(val: any) {
+    this.schedule = val;
+  }
+
+  get currentSchedule() {
+    return this.schedule;
+  }
+
+  set currentLogo(val: any) {
+    this.logo = val;
+  }
+
+  get currentLogo() {
+    return this.logo;
   }
 
   /** GET get single Encompassclient record */

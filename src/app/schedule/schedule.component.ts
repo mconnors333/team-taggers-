@@ -14,7 +14,7 @@ import { OrderService } from '../services/order.service';
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css'],
-  providers: [OrderService],
+  providers: [],
 })
 export class ScheduleComponent implements OnInit {
   scheduleForm = new FormGroup({
@@ -33,6 +33,8 @@ export class ScheduleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    let test = this.orderService.currentPlayers;
+    console.log(test);
     this.games = this.orderService._getSchedule();
   }
 

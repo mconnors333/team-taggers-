@@ -13,7 +13,7 @@ import { OrderService } from '../services/order.service';
   selector: 'app-players',
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.css'],
-  providers: [OrderService],
+  providers: [],
 })
 export class PlayersComponent implements OnInit {
   playersForm = new FormGroup({
@@ -42,6 +42,7 @@ export class PlayersComponent implements OnInit {
   }
 
   goToSchedule() {
+    this.orderService.currentPlayers = this.players;
     this.router.navigate(['Schedule']);
   }
 }
