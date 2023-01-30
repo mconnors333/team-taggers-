@@ -16,7 +16,8 @@ import { PlayersComponent } from './players/players.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { LogoComponent } from './logo/logo.component';
 import { SummaryComponent } from './summary/summary.component';
-import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFireModule } from '@angular/fire/compat';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
   ],
   declarations: [
