@@ -19,6 +19,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -28,8 +29,9 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    provideFirestore(() => getFirestore()),
     // AngularFireAnalyticsModule,
-    AngularFirestoreModule,
+    // AngularFirestoreModule,
     AppRoutingModule,
   ],
   declarations: [
