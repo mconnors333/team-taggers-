@@ -33,7 +33,7 @@ export class PlayersComponent implements OnInit {
     public angularFirestore: AngularFirestore,
     public orderService: OrderService
   ) {
-    this.orders = this.angularFirestore.collection('items').valueChanges();
+    this.orders = angularFirestore.collection('orders').valueChanges();
   }
   ngOnInit() {
     console.log(this.orders);
