@@ -8,6 +8,7 @@ import {
   NavigationStart,
 } from '@angular/router';
 import { OrderService } from '../services/order.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-players',
@@ -23,15 +24,19 @@ export class PlayersComponent implements OnInit {
     grade: new FormControl('', Validators.required),
     number: new FormControl('', Validators.required),
   });
-
+  orders: any;
   players: any;
   currentPage: string = '';
   constructor(
     public router: Router,
     public activateRoute: ActivatedRoute,
+    public angularFirestore: AngularFirestore,
     public orderService: OrderService
-  ) {}
+  ) {
+    this.orders = this.angularFirestore.collection('items').valueChanges();
+  }
   ngOnInit() {
+    console.log(this.orders);
     if (
       this.orderService.currentPlayers &&
       this.orderService.currentPlayers.length > 0
