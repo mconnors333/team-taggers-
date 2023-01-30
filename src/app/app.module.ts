@@ -16,13 +16,11 @@ import { PlayersComponent } from './players/players.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { LogoComponent } from './logo/logo.component';
 import { SummaryComponent } from './summary/summary.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+// import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-
-const app = AngularFireModule.initializeApp(environment.firebase);
 
 @NgModule({
   imports: [
@@ -30,10 +28,10 @@ const app = AngularFireModule.initializeApp(environment.firebase);
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    provideFirestore(() => getFirestore(app)),
+    // AngularFireModule.initializeApp(environment.firebase),
+    // provideFirestore(() => getFirestore(app)),
     // AngularFireAnalyticsModule,
-    AngularFirestoreModule,
+    // AngularFirestoreModule,
     AppRoutingModule,
   ],
   declarations: [
