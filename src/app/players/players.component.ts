@@ -8,7 +8,6 @@ import {
   NavigationStart,
 } from '@angular/router';
 import { OrderService } from '../services/order.service';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-players',
@@ -30,11 +29,11 @@ export class PlayersComponent implements OnInit {
   constructor(
     public router: Router,
     public activateRoute: ActivatedRoute,
-    public firestore: Firestore,
+    // public firestore: Firestore,
     public orderService: OrderService
   ) {
-    const collection = collection(firestore, 'items');
-    this.orders$ = collectionData(collection);
+    // const collection = collection(firestore, 'items');
+    // this.orders$ = collectionData(collection);
   }
   ngOnInit() {
     console.log(this.orders$);
