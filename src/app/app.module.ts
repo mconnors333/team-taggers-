@@ -22,6 +22,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
+const app = AngularFireModule.initializeApp(environment.firebase);
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    // provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore(app)),
     // AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AppRoutingModule,
