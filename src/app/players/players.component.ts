@@ -48,7 +48,6 @@ export class PlayersComponent implements OnInit {
   }
 
   addPlayer() {
-    console.log(this.playersForm.value);
     this.players.push(this.playersForm.value);
     this.playersForm.reset();
     this.orderService.currentPlayers = this.players;
