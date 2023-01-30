@@ -26,7 +26,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp({environment.firebase}),
     provideFirestore(() => getFirestore()),
     AppRoutingModule,
   ],
