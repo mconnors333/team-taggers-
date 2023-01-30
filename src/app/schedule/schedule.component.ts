@@ -33,18 +33,24 @@ export class ScheduleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let test = this.orderService.currentPlayers;
-    console.log(test);
-    this.games = this.orderService._getSchedule();
+    if (
+      this.orderService.currentSchedule &&
+      this.orderService.currentSchedule.length > 0
+    ) {
+      this.games = this.orderService.currentPlayers;
+    } else {
+      this.games = this.orderService._getSchedule();
+    }
   }
 
   addGame() {
-    console.log('property added');
     console.log(this.scheduleForm.value);
     this.games.push(this.scheduleForm.value);
     this.scheduleForm.reset();
+    this.orderService.currentSchedule = this.games;
   }
   goToLogo() {
+    this.orderService.currentSchedule = this.games;
     this.router.navigate(['Logo']);
   }
   goBack() {

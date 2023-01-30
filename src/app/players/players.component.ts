@@ -32,13 +32,21 @@ export class PlayersComponent implements OnInit {
     public orderService: OrderService
   ) {}
   ngOnInit() {
-    this.players = this.orderService._getPlayers();
+    if (
+      this.orderService.currentPlayers &&
+      this.orderService.currentPlayers.length > 0
+    ) {
+      this.players = this.orderService.currentPlayers;
+    } else {
+      this.players = this.orderService._getPlayers();
+    }
   }
 
   addPlayer() {
     console.log(this.playersForm.value);
     this.players.push(this.playersForm.value);
     this.playersForm.reset();
+    this.orderService.currentPlayers = this.players;
   }
 
   goToSchedule() {

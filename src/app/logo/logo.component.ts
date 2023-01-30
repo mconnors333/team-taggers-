@@ -25,7 +25,24 @@ export class LogoComponent implements OnInit {
     public activateRoute: ActivatedRoute,
     public orderService: OrderService
   ) {}
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.orderService.currentLogo);
+
+    if (this.orderService.currentLogo) {
+      console.log(this.orderService.currentLogo);
+      this.load(this.orderService.currentLogo);
+    } else {
+      // this.uploadedFileSrc = this.orderService._getSchedule();
+    }
+  }
+
+  load(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => (this.uploadedFileSrc = reader.result);
+
+    reader.readAsDataURL(file);
+    // this.uploadedFileSrc = URL.createObjectURL(this.uploadedFile);
+  }
 
   loadFile(event: Event) {
     console.log(this.uploadedFile);
@@ -42,10 +59,12 @@ export class LogoComponent implements OnInit {
 
       reader.readAsDataURL(file);
     }
-    this.uploadedFileSrc = URL.createObjectURL(this.uploadedFile);
+    // this.uploadedFileSrc = URL.createObjectURL(this.uploadedFile);
   }
 
   goToSummary() {
+    this.orderService.currentLogo = this.uploadedFileSrc;
+
     this.router.navigate(['Summary']);
   }
   goBack() {
