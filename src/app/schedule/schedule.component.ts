@@ -1,6 +1,7 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import {
   Router,
   NavigationEnd,
@@ -24,9 +25,10 @@ export class ScheduleComponent implements OnInit {
   });
   currentPage: string = '';
   games: any;
+  state$: any;
   constructor(
     public router: Router,
-    public activateRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute,
     public orderService: OrderService
   ) {}
 

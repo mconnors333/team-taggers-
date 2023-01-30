@@ -36,7 +36,6 @@ export class PlayersComponent implements OnInit {
   }
 
   addPlayer() {
-    console.log('property added');
     console.log(this.playersForm.value);
     this.players.push(this.playersForm.value);
     this.playersForm.reset();
